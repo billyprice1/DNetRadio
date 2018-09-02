@@ -17,6 +17,7 @@
   },
   "radio_config": {
     "songs_in_memory": 10,
-    "songs_before_jingle": 3
+    "songs_before_jingle": 3,
+    "silence_removal": true
   }
 }

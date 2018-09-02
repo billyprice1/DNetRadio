@@ -67,9 +67,14 @@ def preload_song(fp):
     player = discord.FFmpegPCMAudio(fp)
     while True:
         data = player.read()
-        preloaded_bytes.append(data)
-        if not data:
+        if data and str(data).count("\\x00") <= 1500:
+            preloaded_bytes.append(data)
+        elif not data:
+            preloaded_bytes.append(data)
             break
+        else:
+            if not config['radio_config'].get("silence_removal"):
+                preloaded_bytes.append(data)
     return preloaded_bytes
 
 
