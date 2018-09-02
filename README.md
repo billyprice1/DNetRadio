@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/JakeMakesStuff/DNetRadio.svg?branch=master)](https://travis-ci.org/JakeMakesStuff/DNetRadio)
+
 # DNetRadio
 DNetRadio is a fast and intuitive Postgres-based and PEP8-compliant radio bot for Discord that is written fully in Python. Tagging the bot if you are a administrator pops up various options that allow the bot to be toggled or if the administrator is in a voice channel, join that channel.
 
