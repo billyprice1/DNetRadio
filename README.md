@@ -27,7 +27,7 @@ If you are just sharding on one server, you can also completely remove `shard_id
 ## Installation
 In order to setup DNetRadio you will need the following things:
 - Some banging tunes (Some jingles are nice too)!
-- A server that has hopefully unlimited bandwidth and a amount of RAM adequate for the the `songs_in_memory` configuration you want. The normal config uses ~500MB RAM with a average amount of 3-4 minute songs, so I'd make the server have 1GB+ RAM.
+- A server that has hopefully unlimited bandwidth and a amount of RAM adequate for the the `songs_in_memory` configuration you want. The normal config uses ~500MB RAM with an average amount of 3-4 minute songs, so I'd make the server have 1GB+ RAM.
 - A Discord bot account.
 - A Postgres server (either local or hosted elsewhere). **I will not help with the configuration of this server, I am not Postgres support.**
 - FFMpeg installed in the PATH of the system you want to run this on (Ubuntu/Debian should be as easy as `sudo apt-get install ffmpeg`, Windows/other OS's is  far more  manual, I suggest Google'ing if you do not know how to do this).
