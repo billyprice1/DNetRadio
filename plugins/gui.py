@@ -25,13 +25,19 @@ async def on_bot_tag(message):
 
     if not message.author.guild_permissions.administrator:
         try:
-            return await message.channel.send(
-                embed=StandardisedEmbed(
-                    message.author, "You don't have permission.",
-                    "To interface with me, please make sure you have "
-                    "administrator.", False
-                )
+            em = StandardisedEmbed(
+                message.author, "You don't have permission to use the GUI.",
+                "To interface with me, please make sure you have "
+                "administrator or if you want the invite that is below.", False
             )
+            em.add_field(
+                name="Bot Invite:",
+                value="[The invite is here.]("
+                      "https://discordapp.com/oauth2/authorize?client_id="
+                      f"{client.user.id}&scope=bot&permissions=36726080)",
+                inline=False
+            )
+            return await message.channel.send(embed=em)
         except (discord.NotFound, discord.Forbidden):
             return
 
@@ -50,6 +56,14 @@ async def on_bot_tag(message):
     main_menu_embed.add_field(
         name="DNetRadio GitHub:",
         value="https://github.com/JakeMakesStuff/DNetRadio",
+        inline=False
+    )
+
+    main_menu_embed.add_field(
+        name="Bot Invite:",
+        value="[The invite is here.]("
+        "https://discordapp.com/oauth2/authorize?client_id="
+        f"{client.user.id}&scope=bot&permissions=36726080)",
         inline=False
     )
 
