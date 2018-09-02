@@ -1,0 +1,22 @@
+{
+  "token": "DISCORD_TOKEN_HERE",
+  "owner_ids": [
+    <owner id as int>,
+    [owner id as int]
+  ],
+  "shard_config": {
+    "shard_ids": [0],
+    "shard_count": 1
+  },
+  "postgres_config": {
+    "database": "dnetradio",
+    "username": "POSTGRES_USERNAME_HERE",
+    "password": "POSTGRES_PASSWORD_HERE",
+    "hostname": "0.0.0.0",
+    "port": 5432
+  },
+  "radio_config": {
+    "songs_in_memory": 10,
+    "songs_before_jingle": 3
+  }
+}
