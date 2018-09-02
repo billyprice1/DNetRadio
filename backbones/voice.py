@@ -68,7 +68,7 @@ def preload_song(fp):
     time_to_remove = 0
     while True:
         data = player.read()
-        if data and str(data).count("\\x00") <= 1500:
+        if data and data.count(b"\x00") <= 1500:
             preloaded_bytes.append(data)
         elif not data:
             preloaded_bytes.append(data)
