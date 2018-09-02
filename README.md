@@ -46,7 +46,7 @@ Ok now that is done you will want to set your shard configuration and Postgres c
 - 1-20 guild(s) - You can remove the `shard_ids` attribute and keep shard count at 1.
 - 20-70 guilds - You can remove the `shard_ids` attribute and change the shard count to 5.
 - 100-1000 guilds - You can remove the `shard_ids` attribute and change the shard count to 10.
-- 1000+ guilds - I'd span it over multiple servers, keep the shard count the same across all of the You can remove the `shard_ids` attribute and change the shard count to 5.
+- 1000+ guilds - I'd span it over multiple servers, keep the shard count the same across all of the servers. You can remove the `shard_ids` attribute and change the shard count to 5.
 
 Ok that is your configuration set after that! You can then run `py -m pip install -r requirements.txt` to install the requirements. If you are on a UNIX-based system, you can then run `py -m pip install uvloop` to install uvloop which is a slightly faster event loop.
 
