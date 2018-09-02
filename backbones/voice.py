@@ -65,6 +65,7 @@ def preload_song(fp):
     logger.info("Preloading {}".format(fp))
     preloaded_bytes = []
     player = discord.FFmpegPCMAudio(fp)
+    time_to_remove = 0
     while True:
         data = player.read()
         if data and str(data).count("\\x00") <= 1500:
@@ -75,7 +76,9 @@ def preload_song(fp):
         else:
             if not config['radio_config'].get("silence_removal"):
                 preloaded_bytes.append(data)
-    return preloaded_bytes
+            else:
+                time_to_remove += 20
+    return preloaded_bytes, time_to_remove
 
 
 def get_random_jingle():
@@ -126,14 +129,15 @@ class PlaylistGeneration:
             self.songs_since_jingle = 0
             jingle_fp = await loop.run_in_executor(None, get_random_jingle)
             if jingle_fp:
-                preload = await loop.run_in_executor(
+                preload, time_to_remove = await loop.run_in_executor(
                     None, preload_song, jingle_fp
                 )
                 mutagen_mp3 = await loop.run_in_executor(
                     None, MP3, jingle_fp
                 )
                 self.playlist.append(
-                    [preload, jingle_fp[10:-4], mutagen_mp3.info.length]
+                    [preload, jingle_fp[10:-4], mutagen_mp3.info.length-(
+                        time_to_remove/1000)]
                 )
                 return
 
@@ -144,14 +148,15 @@ class PlaylistGeneration:
             if song_fp != self.last_song:
                 break
         self.last_song = song_fp
-        preload = await loop.run_in_executor(
+        preload, time_to_remove = await loop.run_in_executor(
             None, preload_song, song_fp
         )
         mutagen_mp3 = await loop.run_in_executor(
             None, MP3, song_fp
         )
         self.playlist.append(
-            [preload, song_fp[8:-4], mutagen_mp3.info.length]
+            [preload, song_fp[8:-4], mutagen_mp3.info.length-(
+                time_to_remove/1000)]
         )
 
     async def playlist_generation(self):
