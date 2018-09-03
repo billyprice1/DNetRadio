@@ -4,7 +4,11 @@ from backbones.config import config
 from pluginbase import PluginBase
 from safeembeds import patch_discord
 import logging
+import pyximport
 # Imports go here.
+
+pyximport.install()
+# Allows *.pyx imports.
 
 logging.basicConfig(level=logging.INFO)
 # Sets up logging.

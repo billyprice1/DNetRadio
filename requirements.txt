@@ -4,3 +4,4 @@ aiopg
 peewee-async
 mutagen
 pluginbase
+Cython
