@@ -5,7 +5,7 @@
 
 [The official bot can be invited from this link.](https://discordapp.com/oauth2/authorize?client_id=455289983725731842&scope=bot&permissions=36726080)
 
-DNetRadio is a fast and intuitive Postgres-based and PEP8-compliant radio bot for Discord that is written fully in Python. Tagging the bot if you are a administrator pops up various options that allow the bot to be toggled or if the administrator is in a voice channel, join that channel.
+DNetRadio is a fast and Free Open Source Radio Bot For Discord  intuitive Postgres-based and PEP8-compliant radio bot for Discord that is written fully in Python. Tagging the bot if you are a administrator pops up various options that allow the bot to be toggled or if the administrator is in a voice channel, join that channel.
 
 It is designed to be reaction based, very fast to operate and very intuitive:
 
